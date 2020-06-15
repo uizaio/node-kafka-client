@@ -1,0 +1,19 @@
+{
+  "extends": "airbnb-base",
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly",
+    "jest": "readonly",
+    "describe": "readonly",
+    "test": "readonly",
+    "expect": "readonly",
+    "beforeEach": "readonly",
+    "iconv-lite": "readonly",
+    "it": "readonly",
+    "beforeAll": "readonly"
+  },
+  "rules": {
+    "quotes": ["error", "double"],
+    "max-len": ["error", 130]
+  }
+}
