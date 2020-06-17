@@ -26,6 +26,9 @@
   ],
   "author": "uiza",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "bugs": {
     "url": "https://github.com/uizaio/node-kafka-client/issues"
   },
