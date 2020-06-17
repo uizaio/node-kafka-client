@@ -1,0 +1,45 @@
+{
+  "name": "node-kafka-client",
+  "version": "0.0.1",
+  "description": "A node-rdkafka wrapper with extended features",
+  "main": "index.js",
+  "scripts": {
+    "test:unit": "jest",
+    "test:unit:watch": "jest --watch",
+    "test:unit:coverage": "jest --coverage --detectOpenHandles --forceExit --coverageDirectory=test_output/coverage/jest",
+    "lint": "eslint lib/**/*.js"
+  },
+  "pre-commit": [
+    "test:unit",
+    "lint"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uizaio/node-kafka-client.git"
+  },
+  "keywords": [
+    "uiza",
+    "kafka",
+    "node-rdkafka",
+    "rd-kafka",
+    "kafka-client"
+  ],
+  "author": "uiza",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/uizaio/node-kafka-client/issues"
+  },
+  "homepage": "https://github.com/uizaio/node-kafka-client#readme",
+  "dependencies": {
+    "node-rdkafka": "^2.7.1-2"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-jest": "^23.13.2",
+    "jest": "^25.5.4",
+    "percentile": "^1.3.0",
+    "pre-commit": "^1.2.2"
+  }
+}
