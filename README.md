@@ -1,5 +1,10 @@
 # node-kafka-client
 
+[![Build Status](https://travis-ci.org/uizaio/node-kafka-client.svg?branch=master)](https://travis-ci.org/uizaio/node-kafka-client)
+[![dependencies Status](https://david-dm.org/uizaio/node-kafka-client/status.svg)](https://david-dm.org/uizaio/node-kafka-client)
+[![devDependencies Status](https://david-dm.org/uizaio/node-kafka-client/dev-status.svg)](https://david-dm.org/uizaio/node-kafka-client?type=dev)
+[![](https://data.jsdelivr.com/v1/package/npm/@uizaio/node-kafka-client/badge)](https://www.jsdelivr.com/package/npm/@uizaio/node-kafka-client)
+
 A wrapper library of [node-rdkafka](https://github.com/Blizzard/node-rdkafka) with extended features
 
 ## Install
