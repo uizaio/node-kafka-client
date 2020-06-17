@@ -1,6 +1,6 @@
 {
   "name": "node-kafka-client",
-  "version": "0.0.1",
+  "version": "v0.0.1",
   "description": "A node-rdkafka wrapper with extended features",
   "main": "index.js",
   "scripts": {
