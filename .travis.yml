@@ -1,20 +1,25 @@
 language: node_js
-script:
-- npm run test:unit
-- npm run lint
-node_js:
-- '8'
-- '9'
-- '10'
-deploy:
-  provider: npm
-  skip_cleanup: true
-  on:
-    tags: true
-    all_branches: true
-  email: developer@uiza.io
-  api_key:
-    secure: KpYAiVVil/wrQ0YPYkSKxD76c2UTRfkauoKX4OLzeris+TvS15BYuEv/NpNo43hXL/EQhLSaF7nTIVxku+mS1XXqal8NboN0tXWAmnOHHZL4Cx06FUjcdUNsvsW8FtMt53fJGzgzuicHE2A8xWHvX9fp3rKJVWgnyktKzg+xPNWuv3ukTgaqgln2AYnX1iYSGtYZHiHir2ARSzzHxOL+IfRI43eRl35RetfzD0wnzXEa/ZqUILqMSB3h5Zz0jFpopJXD9Hi5+N7HYt/CcZ+DSRxezVRhVNA39/ufKqtR8oU36AOeYpczMvf8JsUDqZJ5WMV5XqUoVP1jlXCRB+93n9XHwHNY85TawCgthoc6s4O4uyHZ+K4NKbZ/XYnOTJ+1duvcOOVGcJWRnTpGJc8DaFt8a9gBN/eC3LdtYjh90wOqYXJmsIgJpC1w232NqKSU7+jX2jDLf55K8gUumh4KVkrGrCMMIe4yEK7tIr84PYoHRxmG0RlAv1TnL/at2JOogJtTlqb7L8bNd1plWGPO9NHGlMKJh4AL576jzyZq5jhvcm6r1mrsnWzg+gGj+HGYVzT/gDKFfdQA2bj8bICFBeAomVtgz6l7e91aVq9gs0CJ6sfueZFQw/a241hHDglALcObie7As1t1fdwRWaqdYbBGghCjBN1ce7+eiyq5HaU=
+jobs:
+  include:
+    - stage: test
+      script:
+      - npm run test:unit
+      - npm run lint
+      node_js:
+      - '8'
+      - '9'
+      - '10'
+    - stage: NPM Release
+      node_js: '10'
+      deploy:
+        provider: npm
+        skip_cleanup: true
+        on:
+          tags: true
+        all_branches: true
+        email: developer@uiza.io
+        api_key:
+          secure: KpYAiVVil/wrQ0YPYkSKxD76c2UTRfkauoKX4OLzeris+TvS15BYuEv/NpNo43hXL/EQhLSaF7nTIVxku+mS1XXqal8NboN0tXWAmnOHHZL4Cx06FUjcdUNsvsW8FtMt53fJGzgzuicHE2A8xWHvX9fp3rKJVWgnyktKzg+xPNWuv3ukTgaqgln2AYnX1iYSGtYZHiHir2ARSzzHxOL+IfRI43eRl35RetfzD0wnzXEa/ZqUILqMSB3h5Zz0jFpopJXD9Hi5+N7HYt/CcZ+DSRxezVRhVNA39/ufKqtR8oU36AOeYpczMvf8JsUDqZJ5WMV5XqUoVP1jlXCRB+93n9XHwHNY85TawCgthoc6s4O4uyHZ+K4NKbZ/XYnOTJ+1duvcOOVGcJWRnTpGJc8DaFt8a9gBN/eC3LdtYjh90wOqYXJmsIgJpC1w232NqKSU7+jX2jDLf55K8gUumh4KVkrGrCMMIe4yEK7tIr84PYoHRxmG0RlAv1TnL/at2JOogJtTlqb7L8bNd1plWGPO9NHGlMKJh4AL576jzyZq5jhvcm6r1mrsnWzg+gGj+HGYVzT/gDKFfdQA2bj8bICFBeAomVtgz6l7e91aVq9gs0CJ6sfueZFQw/a241hHDglALcObie7As1t1fdwRWaqdYbBGghCjBN1ce7+eiyq5HaU=
 notifications:
   slack:
     secure: SQJkIhHTiX6Ls5u7eajm1PqsOnWQ8dclxsKFY5aUuuxWSHG0/R6tEvyktelAOhBQKZ1p8B4gWs4HjbDRWh5SeogytOyAvrhKJaX0+DG+eJoHOVBD8xzow/p4Gj6u9bMwlWYc+uj8WnJPMqYcx2lciWIL156CEsd/CbnvFQOlA2hdMH+gLd46nb4bBHc2YS6qC6YHqvsSZPiMLaPo8hk/LDZeMC3+g0oChLRyJIaC5bIh17lVAgTccbYy4jBooM3ryckYnVZvhKlAPfgZ8bP/kXia7FMkOi8vhtoi3V8pekif44ii4CfQg3+QEpn9cGSHfBrveIvqOAwribdh4YvqAOfviapbGnJBtsfX3L/rlCYfUirfhEJ6Njz9zKpTo7yafdvndd/47zkKz3cNzpyrodIqG24DIsB700Gphyss9s95rf68dItKME9ZlGxRTBGbI+J33FvEfAnCHhxB8bFnWQYc/GIXd06jhHVSXgugBesNgeZYuKt1k3UP8L7x4DK/Yk+q3ZGHktOmNbESw5LK8D1E/elvhqM4SgitTtVvi+d/9fMUlTdcxRPUGqH87Bt285eWUlWyGlpKECBhcs0Y2XOukkw3pszUBVugAaueppFj/pJJt0a9zYTZHCr8tmJCKYY3wK3uvnpsVLb19vIwUybQ5xbsCpu9y4SVvjRurxA=
