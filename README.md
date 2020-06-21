@@ -9,7 +9,7 @@ A wrapper library of [node-rdkafka](https://github.com/Blizzard/node-rdkafka) wi
 
 ## Install
 
-> Important: We are using `node-rdkafka^2.7.1-2` which is not supporting Node v12 or later. Let's use Node version v8 > v10
+> Important: We are using `node-rdkafka 2.7.4` which is not supporting Node v12 or later. Let's use Node version v8 > v10
 
 `npm install @uiza/node-kafka-client`
 
